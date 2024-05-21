@@ -26,13 +26,17 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+                implementation("media.kamel:kamel-image:0.9.4")
+                implementation("io.ktor:ktor-client-core:2.3.9")
             }
         }
         val androidMain by getting {
             dependencies {
-                api("androidx.activity:activity-compose:1.7.2")
+                api("androidx.activity:activity-compose:1.9.0")
                 api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.10.1")
+                api("androidx.core:core-ktx:1.13.1")
+                api("io.ktor:ktor-client-android:2.3.9")
+
             }
         }
         val iosX64Main by getting
@@ -43,6 +47,10 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:2.3.9")
+            }
         }
     }
 }
