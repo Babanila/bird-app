@@ -1,5 +1,4 @@
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
@@ -15,12 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
-import io.ktor.serialization.kotlinx.json.json
-import model.BirdImage
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
@@ -51,15 +44,5 @@ fun App() {
     }
 }
 
-val httpClient = HttpClient {
-    install(ContentNegotiation) {
-        json()
-    }
-}
-
-suspend fun getImages(): List<BirdImage> {
-    val images = httpClient.get("https://sebi.io/demo-image-api/pictures.json").body<List<BirdImage>>()
-    return images
-}
 
 expect fun getPlatformName(): String
