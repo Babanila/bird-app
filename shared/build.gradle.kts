@@ -33,7 +33,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-content-negotiation:2.3.9")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.9")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
                 api("dev.icerock.moko:mvvm-core:0.16.1") // only ViewModel, EventsDispatcher, Dispatchers.UI
                 api("dev.icerock.moko:mvvm-compose:0.16.1") // api mvvm-core, getViewModel for Compose Multiplatform
@@ -45,7 +45,6 @@ kotlin {
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.13.1")
                 api("io.ktor:ktor-client-android:2.3.9")
-
             }
         }
         val iosX64Main by getting
