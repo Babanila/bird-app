@@ -33,7 +33,7 @@ class BirdsViewModel: ViewModel () {
         httpClient.close()
     }
 
-    fun updateImages() {
+    private fun updateImages() {
         viewModelScope.launch {
             val  images = getImages()
             _uiState.update {
@@ -43,7 +43,9 @@ class BirdsViewModel: ViewModel () {
     }
 
     private suspend fun getImages(): List<BirdImage> {
-        val images = httpClient.get("https://sebi.io/demo-image-api/pictures.json").body<List<BirdImage>>()
+        val images = httpClient
+            .get("https://sebastianaigner.github.io/demo-image-api/pictures.json")
+            .body<List<BirdImage>>()
         return images
     }
 }
